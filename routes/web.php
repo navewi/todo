@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/tasks', 'TaskController');
+Route::get('events', 'EventController@index');
