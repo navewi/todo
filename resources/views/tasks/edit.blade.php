@@ -27,19 +27,15 @@
 
             @endif
             <div class="row">
-            <form action=" {{ route('tasks.update', [$taskUnderEdit->id]) }}" method='POST'>
+            <form class="form-edit" action=" {{ route('tasks.update', [$taskUnderEdit->id]) }}" method='POST'>
 
             {{ csrf_field() }}
             <input type="hidden" name='_method' value='PUT'>
-
-                    <div class="form-group">
                         <input type="text" name='updatedTaskName' class='form-control' value=' {{ $taskUnderEdit->name }}'>
-                    </div>
+                        <input type="date" name='updatedTaskDate' class='form-control' value=' {{ $taskUnderEdit->date }}'>
 
-                    <div class="form-group">
                         <input type="submit" value='Speichern' class='btn button-success'>
-                        <a href="/tasks" class="btn button-danger pull-right">Zurück</a>
-                    </div>
+                        <a href="/tasks" class="btn button-danger pull-right link-goBack">Zurück</a>
 
             </form>
             </div>

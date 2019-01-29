@@ -86,6 +86,11 @@ html, body {
     color: black;
 }
 
+.link-goBack {
+    text-decoration: none;
+    color: black;
+}
+
 .row-header {
     margin: 25px -15px;
 }
@@ -96,4 +101,27 @@ html, body {
 
 .pagination {
     margin: auto;
+    margin-top: 10px;
+}
+
+.form-edit {
+    display: flex;
+}
+
+.form-edit input {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.page-item.active .page-link {
+    background-color: lightgreen;
+    border-color: lightgreen;
+}
+
+.page-link {
+    color: black;
+}
+
+.task-name-column {
+    width: 60%;
 }

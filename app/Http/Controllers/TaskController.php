@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::orderBy('id', 'desc')->paginate(6);
+        $tasks = Task::orderBy('date', 'asc')->paginate(6);
 
         return view('tasks.index')->with('storedTasks', $tasks);
 
@@ -40,12 +40,14 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'newTaskName' => 'required|min:5|max:255',
+            'newTaskName' => 'required|min:3|max:255',
+            'newTaskDate' => 'required',
         ]);
 
         $task = new Task;
 
         $task->name = $request->newTaskName;
+        $task->date = $request->newTaskDate;
 
         $task->save();
 
@@ -93,10 +95,11 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         $task->name = $request->updatedTaskName;
+        $task->date = $request->updatedTaskDate;
 
         $task->save();
 
-        Session::flash('success', 'Update for Task ' . $id . ' was successful.');
+        Session::flash('success', 'Aktualisierung war erfolgreich.');
 
         return redirect()->route('tasks.index');
     }

@@ -31,7 +31,10 @@
             <form action="{{ route('tasks.store') }}" method='POST'>
             {{ csrf_field() }}
                 <div class="row row-header">
-                    <div class="col-md-9">
+                    <div class="col-md-3">
+                        <input type="date" data-date-format="DD MM YYYY" name='newTaskDate' class='form-control' value="<?php echo date('Y-m-d'); ?>">
+                    </div>
+                    <div class="col-md-6">
                         <input type="text" name='newTaskName' class='form-control'>
                     </div>
                     <div class="col-md-3">
@@ -44,23 +47,23 @@
             @if (!empty($storedTasks))
                 <table class="table">
                     <thead>
-                        <th>Task #</th>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Zu erledigen bis</th>
+                        <th class="task-name-column">TODO</th>
+                        <th>Editieren</th>
+                        <th>Löschen</th>
                     </thead>
                     <tbody>
 
                         @foreach ($storedTasks as $storedTask)
                         <tr>
-                            <th> {{ $storedTask->id }}</th>
+                            <td> {{ $storedTask->date }}</td>
                             <td> {{ $storedTask->name }}</td>
-                            <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn button-success link-edit'>Edit</td>
+                            <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn button-success link-edit'>Editieren</td>
                             <td>
                              <form action="{{ route('tasks.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
                                 {{csrf_field()}}
                                 <input type="hidden" name='_method' value='DELETE'>
-                                <input type="submit" class="btn button-danger" value='Delete'>
+                                <input type="submit" class="btn button-danger" value='Löschen'>
                              </form>
                             </td>
                         </tr>
