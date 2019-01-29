@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+@extends('layouts.app')
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+@section('content')
 
 
-    <title>Todo List Application</title>
-</head>
-<body>
     <div class="container">
         <div class="col-md-offset-2">
-            <div class="row">
+            <div class="row table-title">
                 <h1> Todo Liste</h1>
             </div>
 
@@ -38,12 +30,12 @@
 
             <form action="{{ route('tasks.store') }}" method='POST'>
             {{ csrf_field() }}
-                <div class="row">
+                <div class="row row-header">
                     <div class="col-md-9">
                         <input type="text" name='newTaskName' class='form-control'>
                     </div>
                     <div class="col-md-3">
-                        <input type="submit" class='btn btn-primary btn-block' value='Neuer Eintrag'>
+                        <input type="submit" class='btn button-primary btn-block' value='Neuer Eintrag'>
                     </div>
                 </div>
             </form>
@@ -63,12 +55,12 @@
                         <tr>
                             <th> {{ $storedTask->id }}</th>
                             <td> {{ $storedTask->name }}</td>
-                            <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn btn-success'>Edit</td>
+                            <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn button-success link-edit'>Edit</td>
                             <td>
                              <form action="{{ route('tasks.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
                                 {{csrf_field()}}
                                 <input type="hidden" name='_method' value='DELETE'>
-                                <input type="submit" class="btn btn-danger" value='Delete'>
+                                <input type="submit" class="btn button-danger" value='Delete'>
                              </form>
                             </td>
                         </tr>
@@ -85,5 +77,4 @@
 
         </div>
     </div>
-</body>
-</html>
+    @endsection

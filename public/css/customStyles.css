@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+html, body {
+    background-color: snow ;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.button-primary {
+    border-color: orange;
+    border-radius: 8px;
+    border-width: 2px;
+    background-color: white;
+}
+
+.button-danger {
+    border-color: maroon;
+    border-radius: 8px;
+    border-width: 2px;
+    background-color: white;
+}
+
+.button-success{
+        border-color: lightgreen;
+        border-radius: 8px;
+        border-width: 2px;
+        background-color: white;
+}
+
+.navbar-laravel {
+    background-color:lightgreen;
+    box-shadow: 0 0px 18px rgba(0,0,0,0.3);
+}
+
+.form-control:focus {
+    border-color: lightgreen;
+    box-shadow: 0 0 0 0.2rem rgba(144, 238, 144, 0.5);
+}
+
+.link-edit {
+    text-decoration: none;
+    color: black;
+}
+
+.row-header {
+    margin: 25px -15px;
+}
+
+.table-title h1 {
+    margin: auto;
+}
+
+.pagination {
+    margin: auto;
+}

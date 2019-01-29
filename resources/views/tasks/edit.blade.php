@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+@extends('layouts.app')
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+@section('content')
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-
-    <title>Todo List Application</title>
-</head>
-<body>
     <div class="container">
         <div class="col-md-offset-2">
             <div class="row">
@@ -46,13 +37,12 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value='Save Changes' class='btn btn-success'>
-                        <a href="" class="btn btn-danger pull-right">Go Back</a>
+                        <input type="submit" value='Speichern' class='btn button-success'>
+                        <a href="/tasks" class="btn button-danger pull-right">Zurück</a>
                     </div>
 
             </form>
             </div>
         </div>
     </div>
-</body>
-</html>
+    @endsection
