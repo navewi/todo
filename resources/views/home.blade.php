@@ -20,7 +20,7 @@
                     @endauth
                 @endif
                     <a href="/tasks">Zur To-Do-Liste</a>
-                    <a href="https://github.com/navewi/todo">Zum Github dieses Projekt</a>
+                    <a href="https://github.com/navewi/todo">Zum Github dieses Projekts</a>
                     <a href="#">Dokumentation</a>
                 </div>
             </div>
