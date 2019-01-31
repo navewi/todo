@@ -10,19 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::resource('/tasks', 'TaskController')->middleware('auth');
+use Illuminate\http\Request;
+use App\Task;
 
 Auth::routes();
 
-Route::get('/', 'TaskController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::post('store', 'TaskController@store');
+Route::delete('/tasks/delete/{id}', 'TaskController@delete');
 
-Route::post('update', 'TaskController@update');
-
-Route::post('destroy', 'TaskController@destroy');
+Route::resource('/tasks', 'TaskController')->middleware('auth');

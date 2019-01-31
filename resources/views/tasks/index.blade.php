@@ -55,16 +55,15 @@
                     <tbody>
 
                         @foreach ($storedTasks as $storedTask)
-                        <tr>
+                        <tr id="table-row-{{$storedTask->id}}">
                             <td> {{ $storedTask->date }}</td>
                             <td> {{ $storedTask->name }}</td>
                             <td><a href="{{ route('tasks.edit', ['tasks'=>$storedTask->id]) }}" class='btn button-success link-edit'>Editieren</td>
                             <td>
-                             <form action="{{ route('tasks.destroy', ['tasks'=>$storedTask->id]) }}" method='POST'>
-                                {{csrf_field()}}
-                                <input type="hidden" name='_method' value='DELETE'>
-                                <input type="submit" class="btn button-danger" value='Löschen'>
-                             </form>
+                            {!! Form::open(['onsubmit' => 'return false', 'class' => 'deleteButton']) !!}
+                            {{Form::hidden('taskId', $storedTask->id, array('class' => 'taskId'))}}
+                            {{Form::submit('Delete', ['class' => 'btn button-danger'])}}
+                            {!! Form::close() !!}
                             </td>
                         </tr>
 
@@ -80,4 +79,23 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(e){
+            $('.deleteButton').click(function(e){
+                e.preventDefault();
+                $id=$(this).find('.taskId').val();
+                $.ajax({
+                    type: 'DELETE',
+                    url: "{!! url('tasks/delete') !!}" + "/" + $id,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "id": $id
+                    },
+                    success: function(data) {
+                        $('#table-row-' + $id).remove();
+                    }
+                });
+            });
+        });
+    </script>
     @endsection
