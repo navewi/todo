@@ -32,7 +32,7 @@
             {{ csrf_field() }}
             <input type="hidden" name='_method' value='PUT'>
                         <input type="text" name='updatedTaskName' class='form-control' value=' {{ $taskUnderEdit->name }}'>
-                        <input type="date" name='updatedTaskDate' class='form-control' value=' {{ $taskUnderEdit->date }}'>
+                        <input type="date" name='updatedTaskDate' class='form-control' value='<?php echo date('Y-m-d'); ?>'>
 
                         <input type="submit" value='Speichern' class='btn button-success'>
                         <a href="/tasks" class="btn button-danger pull-right link-goBack">Zurück</a>

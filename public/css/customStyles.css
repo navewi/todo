@@ -125,3 +125,7 @@ html, body {
 .task-name-column {
     width: 60%;
 }
+
+.form-question {
+    margin-left: 35%;
+}

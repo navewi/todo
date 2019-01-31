@@ -68,7 +68,16 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-question">
+                        <br><br> Bereits einen Account?
+                                <a class="btn btn-link" href="/login">
+                                        Hier einloggen
+                                </a>
+</div>
+
+
                     </form>
+
                 </div>
             </div>
         </div>

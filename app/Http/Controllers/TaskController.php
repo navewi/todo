@@ -53,7 +53,8 @@ class TaskController extends Controller
 
         Session::flash('success', 'New task has been successfully added!');
 
-        return redirect()->route('tasks.index');
+        return response()->json($task);
+
     }
 
     /**
@@ -116,7 +117,7 @@ class TaskController extends Controller
 
         $task->delete();
 
-        Session::flash('success', 'Task ' . $id . ' has been successfully deleted');
+        Session::flash('success', 'Aufgabe wurde erfolgreich gelöscht');
 
         return redirect()->route('tasks.index');
 
