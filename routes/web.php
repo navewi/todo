@@ -19,4 +19,10 @@ Route::resource('/tasks', 'TaskController')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'TaskController@index');
+
+Route::post('store', 'TaskController@store');
+
+Route::post('update', 'TaskController@update');
+
+Route::post('destroy', 'TaskController@destroy');
